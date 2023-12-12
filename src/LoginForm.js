@@ -18,6 +18,9 @@ import "./styles.css";
 
 export default function LoginForm() {
  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <div className="wrapper">
       <div className="row">
