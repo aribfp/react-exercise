@@ -1,3 +1,17 @@
+// ================ LOGIN FORM ====================
+//
+// Guidelines:
+// _ You have an incomplete login form.
+// _ You are not allowed to add any additional HTML elements.
+// _ You are not allowed to use refs.
+//
+// Tasks:
+// _ The login button should trigger the login() action imported above and pass required data to it.
+// _ Disable the Login button if email is blank OR if password is under 6 letters
+// _ Disable the Login button while login action is being performed
+// _ Show an error message from the login() if login fails. The error should be cleared every time user re-attempts to log in.
+// _ Show an alert box (native Javascript alert) if login succeeds. Investigate the login function to find out how to log in successfully.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
