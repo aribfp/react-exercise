@@ -20,23 +20,41 @@ export default function LoginForm() {
  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const disable = !email || password.length < 6 || loading;
+
+  const handleLogin = async () => {
+    setLoading(true);
+    setError(null);
+
+    try{
+      await login({email, password});
+      alert("Log in successful")
+      setLoading(false) 
+    }catch(e){
+       setError(e.message);
+       setLoading(false) ;
+    }
+  }
 
   return (
     <div className="wrapper">
       <div className="row">
         <label htmlFor={"email"}>Email</label>
-        <input id={"email"} type={"email"} onChange={(e) => setEmail(email)}  />
+        <input id={"email"} type={"email"} onChange={(e) => setEmail(e.target.value)}  />
       </div>
       <div className="row">
         <label htmlFor={"password"}>Password</label>
-        <input id={"password"} type={"password"}  onChange={(e) => setPassword(password)}/>
+        <input id={"password"} type={"password"}  onChange={(e) => setPassword(e.target.value)}/>
       </div>
 
       {/* Place login error inside this div. Show the div ONLY if there are login errors. */}
-      <div className="errorMessage"></div>
+      <div className="errorMessage"> {error} </div>
 
       <div className="button">
-        <button> Login</button>
+        <button disabled = {disable} onClick={handleLogin}> Login</button>
       </div>
     </div>
   );
